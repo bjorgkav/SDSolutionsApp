@@ -108,5 +108,56 @@ namespace SDSolutionsApp.Controllers
             return View("DetailsItem", item); 
         }
 
+        public ActionResult AddType(){
+            return View("AddType", new RecyclableType());
+        }
+    
+        public ActionResult EditType(int id)
+        {
+            RecyclableType type = context.RecyclableTypes.SingleOrDefault(x => x.Id == id);
+
+            return View("EditType", type);
+        }
+
+        public ActionResult ProcessAddType(RecyclableType rectype) {
+            RecyclableType type = context.RecyclableTypes.SingleOrDefault(x=> x.Id == rectype.Id);
+
+            if(type != null)
+            {
+                type.Type = rectype.Type;
+                type.Rate = rectype.Rate;
+                type.MinKg = rectype.MinKg;
+                type.MaxKg = rectype.MaxKg;
+                type.Items = rectype.Items;
+            }
+            else
+            {
+                context.RecyclableTypes.Add(rectype);
+            }
+
+            context.SaveChanges();
+            
+            return View("DetailsType", rectype);
+        }
+
+        public ActionResult DeleteType(int id) { 
+            RecyclableType t = context.RecyclableTypes.SingleOrDefault(x => (x.Id == id));
+
+            return View("DeleteType", t);
+        }
+
+        public ActionResult ProcessDeleteType(int id)
+        {
+            RecyclableType t = context.RecyclableTypes.SingleOrDefault(x => x.Id == id);
+            context.Entry(t).State = EntityState.Deleted;
+            context.SaveChanges();
+            return Redirect("/Recyclable/ListTypes");
+        }
+
+        public ActionResult DetailsType(int id) {
+            RecyclableType t = context.RecyclableTypes.SingleOrDefault(x => (x.Id == id));
+
+            return View("DetailsType", t);
+        }
     }
 }
