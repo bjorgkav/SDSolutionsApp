@@ -1,0 +1,44 @@
+﻿@model SDSolutionsApp.Models.RecyclableItem
+
+@{
+    ViewBag.Title = "DetailsItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailsItem</h2>
+
+<div>
+    <h4>RecyclableItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComputedRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComputedRate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditItem", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ListItems")
+</p>

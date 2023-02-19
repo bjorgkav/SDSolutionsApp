@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SDSolutionsApp.Models.RecyclableItem>
+
+@{
+    ViewBag.Title = "ListItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListItems</h2>
+
+<p>
+    @Html.ActionLink("Add New Item", "AddItem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComputedRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComputedRate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditItem", new { id = item.Id }) |
+            @Html.ActionLink("Details", "DetailsItem", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
