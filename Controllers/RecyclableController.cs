@@ -164,5 +164,30 @@ namespace SDSolutionsApp.Controllers
 
             return View("DetailsType", t);
         }
+    
+        public decimal FindRate (int id)
+        {
+            RecyclableType t = context.RecyclableTypes.SingleOrDefault(x => (x.Id == id));
+            return t.Rate;
+        }
+
+        public decimal ValidateWeight(int id, decimal input)
+        {
+            RecyclableType t = context.RecyclableTypes.SingleOrDefault(x => (x.Id == id));
+            
+            if(input < t.MinKg)
+            {
+                return t.MinKg;
+            }
+
+            if(input > t.MaxKg)
+            {
+                return t.MaxKg;
+            }
+
+            return input;
+
+        }
+
     }
 }

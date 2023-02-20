@@ -63,20 +63,56 @@
 @section Scripts {
     <script type="text/javascript">
 
+        var type_rate = 0;
+
         let typeelem = document.getElementById("RecylableTypeId")
         let rateelem = document.getElementById("ComputedRate");
         let weightelem = document.getElementById("Weight");
 
-        weightelem.addEventListener("change", recalculate)
+        
+
+        typeelem.addEventListener("change", recalculate);
+        weightelem.addEventListener("change", adjust_weight);
+        weightelem.addEventListener("change", recalculate);
+
+        document.onload = getRate();
 
         function recalculate() {
-            var type_rate = 0;
-            alert(type_rate);
-
-            var weight_input = weightelem.value;
-
-            rateelem.value = type_rate * weight_input
+            $.ajax({
+                type: "POST",
+                url: "/Recyclable/FindRate",
+                data: { "id": typeelem.value },
+                success: function (response) {
+                    var weight_input = weightelem.value;
+                    new_rate = response * weight_input;
+                    rateelem.value = new_rate.toFixed(2);
+                },
+                failure: function (response) {
+                    alert("AJAX request failed. (FindRate)")
+                },
+                error: function (response) {
+                    alert("AJAX request failed. (FindRate)")
+                }
+            });
         }
+
+        function adjust_weight() {
+            $.ajax({
+                type: "POST",
+                url: "/Recyclable/ValidateWeight",
+                data: { "id": typeelem.value, "input": weightelem.value },
+                success: function (response) {
+                    weightelem.value = response;
+                },
+                failure: function (response) {
+                    alert("AJAX request failed. (ValidateWeight)")
+                },
+                error: function (response) {
+                    alert("AJAX request failed. (ValidateWeight)")
+                }
+            });
+        }
+
     /**/
     </script>
 }
