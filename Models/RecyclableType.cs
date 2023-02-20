@@ -33,7 +33,7 @@ namespace SDSolutionsApp.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(150), DisplayName("Type")]
+        [MaxLength(100), DisplayName("Type")]
         public string Type { get; set; }
 
         [DisplayName("Rate")]

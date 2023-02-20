@@ -288,6 +288,10 @@
     <Compile Include="Migrations\202302201124402_implementedunique.designer.cs">
       <DependentUpon>202302201124402_implementedunique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302201201527_updatesize.cs" />
+    <Compile Include="Migrations\202302201201527_updatesize.designer.cs">
+      <DependentUpon>202302201201527_updatesize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RecyclableItem.cs" />
     <Compile Include="Models\RecyclableType.cs" />
@@ -374,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302201124402_implementedunique.resx">
       <DependentUpon>202302201124402_implementedunique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302201201527_updatesize.resx">
+      <DependentUpon>202302201201527_updatesize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
