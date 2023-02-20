@@ -17,8 +17,15 @@ namespace SDSolutionsApp.Data_Access_Layer__DAL_
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            
+            //for setting ALL decimals in this project to have default integer places of 20 and decimal places of 2
+            modelBuilder.Conventions.Remove<DecimalPropertyConvention>();
+            modelBuilder.Conventions.Add(new DecimalPropertyConvention(20, 2));
+
+            base.OnModelCreating(modelBuilder);
         }
+
+        
     }
 }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Our list of recyclable items</h2>
+<h2>ListItems</h2>
 
 <p>
     @Html.ActionLink("Add New Item", "AddItem")
@@ -13,7 +13,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
+            @Html.DisplayNameFor(model => model.types.Type)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Weight)
@@ -21,13 +21,16 @@
         <th>
             @Html.DisplayNameFor(model => model.ComputedRate)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
+            @Html.DisplayFor(modelItem => item.types.Type)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Weight)
@@ -36,9 +39,12 @@
             @Html.DisplayFor(modelItem => item.ComputedRate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditItem", new { id = item.Id }) |
-            @Html.ActionLink("Details", "DetailsItem", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id })
+            @Html.DisplayFor(modelItem => item.ItemDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditItem", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsItem", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteItem", new { id=item.Id })
         </td>
     </tr>
 }

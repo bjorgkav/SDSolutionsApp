@@ -8,16 +8,15 @@
 <h2>DetailsItem</h2>
 
 <div>
-    <h4>Details about the recyclable item</h4>
+    <h4>RecyclableItem</h4>
     <hr />
     <dl class="dl-horizontal">
-
         <dt>
-            @Html.DisplayNameFor(model => model.ItemDescription)
+            @Html.DisplayNameFor(model => model.types.Type)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ItemDescription)
+            @Html.DisplayFor(model => model.types.Type)
         </dd>
 
         <dt>
@@ -36,9 +35,17 @@
             @Html.DisplayFor(model => model.ComputedRate)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditItem", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "EditItems", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "ListItems")
 </p>

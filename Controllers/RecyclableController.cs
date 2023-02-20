@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 
@@ -61,7 +62,8 @@ namespace SDSolutionsApp.Controllers
             //edit if it already exists
             if (item != null)
             {
-                item.Id = recItem.Id;
+                //item.Id = recItem.Id;
+                item.RecylableTypeId= recItem.RecylableTypeId;
                 item.ComputedRate = recItem.ComputedRate;
                 item.Weight = recItem.Weight;
                 item.ItemDescription = recItem.ItemDescription;
@@ -128,7 +130,6 @@ namespace SDSolutionsApp.Controllers
                 type.Rate = rectype.Rate;
                 type.MinKg = rectype.MinKg;
                 type.MaxKg = rectype.MaxKg;
-                type.Items = rectype.Items;
             }
             else
             {

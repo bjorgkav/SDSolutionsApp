@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -25,12 +26,15 @@ namespace SDSolutionsApp.Models
         }
 
 
-        [Required]
+        [Required, Key]
         public int Id { get; set; }
-        
-        //public int RecylableTypeId { get; set; }  //1 to 1 relationship with Type, so only Id
-        
+
+        [Required, ForeignKey("types")]
+        public int RecylableTypeId { get; set; }  //1 to 1 relationship with Type, so only Id
+        public virtual RecyclableType types { get; set; }
+
         public decimal Weight { get; set; }
+
         public decimal ComputedRate { get; set; }
 
         [MaxLength(150)]

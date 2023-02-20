@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202302191233578_updatevarcharlength2.designer.cs">
       <DependentUpon>202302191233578_updatevarcharlength2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302200637257_editforeignkey-2-20-2023.cs" />
+    <Compile Include="Migrations\202302200637257_editforeignkey-2-20-2023.designer.cs">
+      <DependentUpon>202302200637257_editforeignkey-2-20-2023.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RecyclableItem.cs" />
     <Compile Include="Models\RecyclableType.cs" />
@@ -228,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302191233578_updatevarcharlength2.resx">
       <DependentUpon>202302191233578_updatevarcharlength2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302200637257_editforeignkey-2-20-2023.resx">
+      <DependentUpon>202302200637257_editforeignkey-2-20-2023.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

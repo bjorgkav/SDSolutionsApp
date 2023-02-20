@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,25 +18,26 @@ namespace SDSolutionsApp.Models
             MaxKg = 0;
         }
 
-        public RecyclableType(int id, string type, decimal rate, decimal minKg, decimal maxKg, ICollection<RecyclableItem> items)
+        public RecyclableType(int id, string type, decimal rate, decimal minKg, decimal maxKg)
         {
             Id = id;
             Type = type;
             Rate = rate;
             MinKg = minKg;
             MaxKg = maxKg;
-            Items = items;
         }
 
-        [Required]
+        [Required, Key]
         public int Id { get; set; }
 
         [MaxLength(150)]
         public string Type { get; set; }
+
         public decimal Rate { get; set; }
+
         public decimal MinKg { get; set; }
+
         public decimal MaxKg { get; set;}
-        public virtual ICollection<RecyclableItem> Items { get; set; } //many items can be set to one type
 
     }
 }
