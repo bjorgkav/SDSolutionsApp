@@ -1,4 +1,5 @@
-﻿using SDSolutionsApp.Data_Access_Layer__DAL_;
+﻿
+using SDSolutionsApp.Data_Access_Layer__DAL_;
 using SDSolutionsApp.Models;
 using System;
 using System.Collections.Generic;
@@ -47,9 +48,11 @@ namespace SDSolutionsApp.Controllers
             
             return View("ListTypes", types);
         }
-
         public ActionResult AddItem() //(RecyclableItem item)
         {
+            
+            ViewBag.TypeList = new SelectList(context.RecyclableTypes.ToList(), "Id", "Type"); //needed for dropdown
+
             return View("AddItem", new RecyclableItem());
         }
 
@@ -80,6 +83,7 @@ namespace SDSolutionsApp.Controllers
 
         public ActionResult EditItem(int id)
         {
+            ViewBag.TypeList = new SelectList(context.RecyclableTypes.ToList(), "Id", "Type"); //needed for dropdown
             RecyclableItem item = context.RecyclableItems.SingleOrDefault(x => x.Id == id);
 
             return View("EditItem", item);

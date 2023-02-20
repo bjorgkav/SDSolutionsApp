@@ -8,7 +8,7 @@
 <h2>List of recyclable item types</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a new Type", "AddType")
 </p>
 <table class="table">
     <tr>
@@ -27,7 +27,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model) {// "Model" is the list you passed in the function
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Type)
@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.MaxKg)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditType", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsType", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteType", new { id=item.Id })
         </td>
     </tr>
 }

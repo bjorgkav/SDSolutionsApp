@@ -21,6 +21,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Weight)
         </dt>
 
@@ -36,14 +44,6 @@
             @Html.DisplayFor(model => model.ComputedRate)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemDescription)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm("ProcessDeleteItem", "Recyclable", new { id = Model.Id }, FormMethod.Post)) {
@@ -51,7 +51,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "ListItem")
+            @Html.ActionLink("Back to List", "ListItems")
         </div>
     }
 </div>

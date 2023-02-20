@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -30,13 +31,16 @@ namespace SDSolutionsApp.Models
         [Required, Key]
         public int Id { get; set; }
 
-        [MaxLength(150)]
+        [MaxLength(150), DisplayName("Type")]
         public string Type { get; set; }
 
+        [DisplayName("Rate")]
         public decimal Rate { get; set; }
 
+        [DisplayName("MinKg")]
         public decimal MinKg { get; set; }
 
+        [DisplayName("MaxKg")]
         public decimal MaxKg { get; set;}
 
     }
