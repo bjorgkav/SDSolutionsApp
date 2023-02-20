@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<SDSolutionsApp.Models.RecyclableType>
 
 @{
-    ViewBag.Title = "ListTypes";
+    ViewBag.Title = "List of Types";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List of recyclable item types</h2>
+<h2>List of Types</h2>
 
 <p>
     @Html.ActionLink("Add a new Type", "AddType")
+</p>
+<p>
+    @Html.ActionLink("Return to Index", "Index", "Recyclable")
 </p>
 <table class="table">
     <tr>

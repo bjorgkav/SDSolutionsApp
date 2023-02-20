@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SDSolutionsApp.Models
 {
@@ -31,6 +32,7 @@ namespace SDSolutionsApp.Models
         [Required, Key]
         public int Id { get; set; }
 
+        [Required]
         [MaxLength(150), DisplayName("Type")]
         public string Type { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿@model SDSolutionsApp.Models.RecyclableItem
 
 @{
-    ViewBag.Title = "AddItem";
+    ViewBag.Title = "Add an Item";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -50,7 +50,8 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="button" value="Reset" class="btn btn-default" onclick="clearall()"/>
         </div>
     </div>
 </div>
@@ -68,27 +69,28 @@
         let typeelem = document.getElementById("RecylableTypeId")
         let rateelem = document.getElementById("ComputedRate");
         let weightelem = document.getElementById("Weight");
+        let descelem = document.getElementById("ItemDescription");
 
-        typeelem.addEventListener("change", recalculate);
+        typeelem.addEventListener("change", adjust_weight);
         weightelem.addEventListener("change", adjust_weight);
-        weightelem.addEventListener("change", recalculate);
 
         document.onload = getRate();
 
-        function recalculate() {
+        function recalculate(weight_value) {
+
             $.ajax({
                 type: "POST",
                 url: "/Recyclable/FindRate",
                 data: { "id": typeelem.value },
                 success: function (response) {
-                    var weight_input = weightelem.value;
+                    var weight_input = weight_value;
                     new_rate = response * weight_input;
                     rateelem.value = new_rate.toFixed(2);
                 },
-                failure: function (response) {
+                failure: function () {
                     alert("AJAX request failed. (FindRate)")
                 },
-                error: function (response) {
+                error: function () {
                     alert("AJAX request failed. (FindRate)")
                 }
             });
@@ -101,14 +103,23 @@
                 data: { "id": typeelem.value, "input": weightelem.value },
                 success: function (response) {
                     weightelem.value = response;
+                    recalculate(response);
                 },
-                failure: function (response) {
+                failure: function () {
                     alert("AJAX request failed. (ValidateWeight)")
                 },
-                error: function (response) {
+                error: function () {
                     alert("AJAX request failed. (ValidateWeight)")
                 }
             });
+        }
+
+        function clearall() {
+            typeelem.value = -1;
+            var zero = 0;
+            rateelem.value = zero.toFixed(2);
+            weightelem.value = zero.toFixed(2);
+            descelem.value = "";
         }
     /**/
     </script>

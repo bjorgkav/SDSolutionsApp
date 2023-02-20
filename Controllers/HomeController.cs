@@ -8,21 +8,17 @@ namespace SDSolutionsApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is an ASP.NET application developed for an application at SD Solutions. It was developed using .NET Framework 4.8, SQL Server, C# and Javascript, and Entity Framework.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "You can find my contact information here.";
 
             return View();
         }

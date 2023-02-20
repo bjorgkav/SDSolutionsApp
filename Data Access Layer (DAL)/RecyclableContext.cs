@@ -23,6 +23,8 @@ namespace SDSolutionsApp.Data_Access_Layer__DAL_
             modelBuilder.Conventions.Remove<DecimalPropertyConvention>();
             modelBuilder.Conventions.Add(new DecimalPropertyConvention(20, 2));
 
+            modelBuilder.Entity<RecyclableType>().HasIndex(x => x.Type).IsUnique();
+
             base.OnModelCreating(modelBuilder);
         }
 

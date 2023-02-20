@@ -1,16 +1,16 @@
 ﻿@model SDSolutionsApp.Models.RecyclableType
 
 @{
-    ViewBag.Title = "AddType";
+    ViewBag.Title = "Add a Type";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Add Type</h2>
 
-@using (Html.BeginForm("ProcessAddType", "Recyclable", FormMethod.Post)) 
+@using (Html.BeginForm("ProcessAddType", "Recyclable", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Recyclable Type</h4>
         <hr />
@@ -50,6 +50,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Reset" class="btn btn-default" onclick="clearall()" />
             </div>
         </div>
     </div>
@@ -58,3 +59,24 @@
 <div>
     @Html.ActionLink("Back to List", "ListTypes")
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        var type_rate = 0;
+
+        let typeelem = document.getElementById("Type")
+        let rateelem = document.getElementById("Rate");
+        let minelem = document.getElementById("MinKg");
+        let maxelem = document.getElementById("MaxKg");
+
+        function clearall() {
+            typeelem.value = "";
+            var zero = 0;
+            rateelem.value = zero.toFixed(2);
+            minelem.value = zero.toFixed(2);
+            maxelem.value = zero.toFixed(2);
+        }
+        /**/
+    </script>
+}

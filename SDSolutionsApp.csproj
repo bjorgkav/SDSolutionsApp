@@ -284,6 +284,10 @@
     <Compile Include="Migrations\202302200637257_editforeignkey-2-20-2023.designer.cs">
       <DependentUpon>202302200637257_editforeignkey-2-20-2023.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302201124402_implementedunique.cs" />
+    <Compile Include="Migrations\202302201124402_implementedunique.designer.cs">
+      <DependentUpon>202302201124402_implementedunique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RecyclableItem.cs" />
     <Compile Include="Models\RecyclableType.cs" />
@@ -324,7 +328,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Recyclable\Index.cshtml" />
     <Content Include="Views\Recyclable\ListItems.cshtml" />
     <Content Include="Views\Recyclable\ListTypes.cshtml" />
@@ -368,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302200637257_editforeignkey-2-20-2023.resx">
       <DependentUpon>202302200637257_editforeignkey-2-20-2023.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302201124402_implementedunique.resx">
+      <DependentUpon>202302201124402_implementedunique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

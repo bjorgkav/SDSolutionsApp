@@ -76,7 +76,15 @@ namespace SDSolutionsApp.Controllers
                 context.RecyclableItems.Add(recItem);
             }
 
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.ToString();
+                return View("Error");
+            }
 
             return View("DetailsItem", recItem); 
         }
@@ -140,8 +148,13 @@ namespace SDSolutionsApp.Controllers
                 context.RecyclableTypes.Add(rectype);
             }
 
-            context.SaveChanges();
-            
+            try { 
+                context.SaveChanges(); 
+            } catch (Exception e) { 
+                ViewBag.Error = e.ToString();
+                return View("Error");
+            }
+
             return View("DetailsType", rectype);
         }
 
@@ -188,6 +201,7 @@ namespace SDSolutionsApp.Controllers
             return input;
 
         }
+
 
     }
 }
